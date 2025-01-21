@@ -66,7 +66,6 @@ contract Raffle is VRFConsumerBaseV2Plus {
 
     /******** EVENTS ********/
     event RaffleEntered(address indexed player, uint256 indexed amount);
-    event RaffleEnter(address indexed player);
     event WinnerPicked(address indexed player);
 
     constructor(
@@ -174,6 +173,14 @@ contract Raffle is VRFConsumerBaseV2Plus {
     }
 
     function getPlayers(uint256 index) external view returns (address) {
+        return s_players[index];
+    }
+
+    function getRaffleState() external view returns (RaffleState) {
+        return s_raffleState;
+    }
+
+    function getPlayer(uint256 index) external view returns (address) {
         return s_players[index];
     }
 }
