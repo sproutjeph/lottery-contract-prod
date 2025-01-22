@@ -27,6 +27,7 @@ contract HelperConfig is Script, CodeConstants {
         uint32 callbackGasLimit;
         uint256 subscriptionId;
         address link;
+        address account;
     }
 
     NetworkConfig public localNetworkConfig;
@@ -46,7 +47,8 @@ contract HelperConfig is Script, CodeConstants {
                 gasLane: 0x130dba50ad435d4ecc214aad0d5820474137bd68e7e77724144f27c3c377d3d4,
                 callbackGasLimit: 500000, // 500k gas
                 subscriptionId: 0,
-                link: 0x779877A7B0D9E8603169DdbD7836e478b4624789
+                link: 0x779877A7B0D9E8603169DdbD7836e478b4624789,
+                account: 0xdC2073Ad6b640D9A9B6BF49f230EFDB8e3b9d6cd //my mate mask account address this should a private key
             });
     }
 
@@ -92,7 +94,8 @@ contract HelperConfig is Script, CodeConstants {
             gasLane: 0x130dba50ad435d4ecc214aad0d5820474137bd68e7e77724144f27c3c377d3d4,
             callbackGasLimit: 500000, // 500k gas
             subscriptionId: 0,
-            link: address(linkToken)
+            link: address(linkToken),
+            account: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 // Default address for tx.origin and msg.sender, from forge-std Base.sol
         });
 
         return localNetworkConfig;
